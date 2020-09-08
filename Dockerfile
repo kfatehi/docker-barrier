@@ -1,10 +1,10 @@
-FROM ich777/novnc-baseimage
+FROM ich777/novnc-baseimage:arm64
 
 LABEL maintainer="admin@minenet.at"
 
 RUN export TZ=Europe/Rome && \
 	apt-get update && \
-	apt-get -y install --no-install-recommends bzip2 libgtk-3-0 libdbus-glib-1-2 && \
+	apt-get -y install --no-install-recommends firefox-esr && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
 	rm -rf /var/lib/apt/lists/* && \
